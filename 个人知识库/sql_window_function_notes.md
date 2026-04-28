@@ -1,7 +1,4 @@
-# 🪟 MySQL 窗口函数（Window Functions）完整笔记（最终排版版）
-
-> 🎯 目标：系统掌握窗口函数的语法结构、参数含义、窗口范围（frame）全部类型及其作用  
-> ✅ 本版本已适配：GitHub / Typora / VS Code / Obsidian 完美渲染
+# 🪟 MySQL 窗口函数（Window Functions）笔记
 
 ---
 
@@ -318,6 +315,23 @@ FROM → WHERE → GROUP BY → HAVING → 窗口函数 → ORDER BY
 
 ## 作用
 👉 复用窗口定义
+
+## 语法
+- WINDOW w AS (
+-   PARTITION BY category
+-   ORDER BY date
+- )
+
+## 示例
+- SELECT
+-    category
+-    SUM(sales) OVER w AS total_sales,
+-    AVG(sales) OVER w AS avg_sales
+- FROM orders
+- WINDOW w AS (
+-    PARTITION BY category
+-    ORDER BY date
+- )
 
 ## 本质
 👉 给窗口命名
